@@ -1,0 +1,54 @@
+# This file can be used to test api endpoints
+# to use you need to install REST CLient extension on VS Code
+
+@port = 5000
+@protocol = http
+@hostname = localhost
+@base_url = {{protocol}}://{{hostname}}:{{port}}
+
+@email = root@example.com
+@password = root
+@user_id = 1
+@student_id = 1
+
+### Returns a security web token
+POST {{base_url}}/api/auth
+content-type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### List all students
+GET {{base_url}}/api/students
+content-type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### Returns a student given a id
+GET {{base_url}}/api/students/{{student_id}}
+
+### Creates a new student 
+POST {{base_url}}/api/students
+content-type: application/json
+
+{
+  "name": "Jonh Doe",
+  "age": "{{$randomInt 12 18}}",
+  "grade": "1A",
+}
+
+### Updated student data
+PATCH {{base_url}}/api/students/{{student_id}}
+content-type: application/json
+
+{
+  "name": "John Doe"
+}
+
+### Updated student data
+DELETE {{base_url}}/api/students/{{student_id}}
