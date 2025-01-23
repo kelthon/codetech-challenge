@@ -1,11 +1,10 @@
 import express from 'express';
+import { dataSource } from './infrastructure/database/config';
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
-app.get('/', (req, res) => {
-  return 'Hello, World';
-});
+dataSource.initialize();
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
