@@ -3,6 +3,6 @@ export class Student {
     public readonly studentId: number,
     public name: string,
     public age: number,
-    public grade: string
+    public grade: string,
   ) {}
 }
