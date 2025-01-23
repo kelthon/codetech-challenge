@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
-import { UserModel } from '../models/UserModel';
-import { StudentModel } from '../models/StudentModel';
+import { UserEntity } from '../entities/user.entity';
+import { StudentEntity } from '../entities/student.entity';
 
 export const dataSource = new DataSource({
   type: 'postgres',
@@ -11,7 +11,7 @@ export const dataSource = new DataSource({
   database: 'codetech',
   synchronize: true,
   logging: false,
-  entities: [UserModel, StudentModel],
+  entities: [UserEntity, StudentEntity],
   subscribers: [],
   migrations: [],
 });

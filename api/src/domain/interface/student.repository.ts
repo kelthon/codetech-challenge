@@ -1,4 +1,4 @@
-import { Student } from "../entities/Student";
+import { Student } from '../entities/student.entity';
 
 export interface StudentRepository {
   findAll(): Promise<Student[]>;
