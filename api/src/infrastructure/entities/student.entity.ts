@@ -1,19 +1,16 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-export class StudentModel {
+@Entity('students')
+export class StudentEntity {
   @PrimaryGeneratedColumn()
   studentId: number;
 
-  @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
+  @Column({ length: 75 })
+  name: string;
 
   @Column()
   age: number;
 
-  @Column()
-  gradeId: number;
+  @Column({ length: 15 })
+  grade: string;
 }
