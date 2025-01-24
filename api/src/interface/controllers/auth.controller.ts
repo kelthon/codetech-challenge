@@ -2,7 +2,8 @@ import { validate } from 'class-validator';
 import { Request, Response } from 'express';
 import { SignIn } from '../../use_cases/signin.case';
 import { SignInDto } from '../../infrastructure/dtos/signin.dto';
-import { HTTPStatusCode } from '../../infrastructure/http/http-status-code';
+import { Code } from '../../infrastructure/http/http';
+import { BadRequestException } from '../../infrastructure/http/bad-request.exception';
 
 
 export class AuthController {
@@ -15,7 +16,7 @@ export class AuthController {
     });
 
     if (errors.length > 0) {
-      return res.status(HTTPStatusCode.BadRequest).json({ errors });
+      throw new BadRequestException();
     }
 
     return res.json(await this.signIn.execute(dto));

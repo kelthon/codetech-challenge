@@ -1,6 +1,7 @@
 import { UserRepository } from '../domain/interface/user.repository';
 import { PasswordService } from '../domain/interface/password.service';
 import { SignInDto } from '../infrastructure/dtos/signin.dto';
+import { BadRequestException } from '../infrastructure/http/bad-request.exception';
 
 export class SignIn {
   constructor(
@@ -12,11 +13,11 @@ export class SignIn {
     const user = await this.userRepository.findByEmail(email);
 
     if (!user) {
-      throw new Error('Not Found User');
+      throw new BadRequestException('User was not found');
     }
 
     if (!this.passwordService.comparePasswords(password, user.hashedPassword)) {
-      throw new Error('Password Incorrect');
+      throw new BadRequestException('User password was incorrect');
     }
 
     return user;

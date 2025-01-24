@@ -1,4 +1,5 @@
-export enum HTTPStatusCode {
+/* Represest HTTP Status Code */ 
+export enum StatusCode {
   OK = 200,
   Created = 201,
   NoContent = 204,
