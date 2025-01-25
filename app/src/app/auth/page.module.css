@@ -1,0 +1,87 @@
+.container {
+  display: flex;
+}
+
+.col {
+  height: 100vh;
+}
+
+.col:first-child {
+  flex: 1;
+  background-color: var(--theme-background-primary);
+}
+
+.col:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  gap: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section > :is(h1.title, p.text) {
+  text-align: center;
+}
+
+.section > form {
+  gap: 3rem;
+  width: 100%;
+  display: flex;
+  margin-top: 3rem;
+  padding-inline: 4rem;
+  min-width: 44.125rem;
+  flex-direction: column;
+}
+
+.section > form > .label {
+  display: flex;
+  max-width: 34.1875rem;
+  flex-direction: column;
+}
+
+.section > form > .label > span {
+  line-height: 1.3125rem;
+}
+
+.section > form > .label > .input {
+  border: none;
+  border-radius: 0.5rem;
+  line-height: 1.3125rem;
+  padding-block: 0.90625rem;
+  background-color: var(--theme-background-muted);
+}
+
+.section > form > .btn {
+  border: none;
+  font-weight: 800;
+  padding-block: 0.90625rem;
+  border-radius: 0.5rem;
+  line-height: 1.3125rem;
+  color: var(--theme-foreground-primary);
+  background-color: var(--theme-background-primary);
+}
+
+.footer {
+  margin-block: 3rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 768) {
+  .col:first-child {
+    display: none;
+  }
+
+  .col:last-child {
+    flex: 1;
+  }
+
+  .section > form {
+    padding-inline: 1rem;
+  }
+}
