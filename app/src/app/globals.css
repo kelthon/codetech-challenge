@@ -2,6 +2,7 @@
   /* Theme colors */
   --theme-background: #ffffff; 
   --theme-foreground: #000000;
+  --theme-line: #DDDDDD;
   
   --theme-background-primary: #D64B14;
   --theme-foreground-primary: #ffffff;
@@ -22,6 +23,7 @@ body {
   font-family: Poppins, Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.3125;
 }
 
 * {

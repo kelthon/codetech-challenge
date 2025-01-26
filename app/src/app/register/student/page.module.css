@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.content {
+  flex: 1;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding-block: 1.6875rem 4rem;
+  padding-inline: 2.1875rem;
+}
+
+.content > .title {
+  display: flex;
+  align-items: center;
+}
+
+.content > .title > span {
+  flex: 1;
+}
+
+.content > .title > button {
+  border: none;
+  width: 10.875rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  color: var(--theme-foreground-primary);
+  background-color: var(--theme-background-primary);
+}
+
+.content > form {
+  flex: 1;
+  gap: 3rem;
+  display: flex;
+  padding: 2.5rem 3rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  border: 1px solid var(--theme-line);
+}
+
+.content > form > div {
+  gap: 2rem;
+  display: flex;
+}
+
+.content > form > div > p.inputGroup {
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content > form > div > p.inputGroup:first-child {
+  flex: 1;
+}
+
+.content > form > div > p.inputGroup > label {
+  display: flex;
+  flex-direction: column;
+}
+
+.content > form > div > p.inputGroup > label.inputText {
+  flex: 1;
+}
+
+.content > form > div > p.inputGroup > label.inputNumber {
+  width: 9.5625rem;
+}
+
+.content > form > div > p.inputGroup > label > input {
+  height: 3.175rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--theme-background-muted);
+}
+
+.content > form > p.inputGroup > button {
+  border: none;
+  width: 10.875rem;
+  height: 3.125rem;
+  border-radius: 0.5rem;
+  background-color: var(--theme-background-primary);
+  color: var(--theme-foreground-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding-inline: 1rem;
+  }
+
+  .content > form > div {
+    flex-direction: column;
+  }
+
+  .content > form {
+    padding-inline: 1rem;
+  }
+}
