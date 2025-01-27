@@ -1,0 +1,12 @@
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  margin-block: 2rem;
+  margin-inline: 4rem;
+}
+
+.sectionTitle > span {
+  flex: 1;
+  font-weight: 800;
+  font-size: 1.5rem;
+}
