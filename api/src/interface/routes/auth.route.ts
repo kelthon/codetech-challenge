@@ -14,6 +14,13 @@ const passwordService = new BCryptPasswordService();
 const signinUseCase = new SignIn(userRepository, passwordService);
 const authController = new AuthController(signinUseCase);
 
-route.post('/auth', (req, res) => authController.signin(req, res));
+route.post('/auth', (req, res, next) => {
+  try {
+    authController.signin(req, res, next);
+  }
+  catch(err) {
+    next(err);
+  }
+});
 
 export { route as authRoutes };
