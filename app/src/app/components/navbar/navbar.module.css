@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  max-height: 4.735rem;
+  align-items: center;
+  padding-inline: 3.125rem;
+  padding-block: 1.203125rem;
+  color: var(--theme-foreground-primary);
+  background-color: var(--theme-background-primary);
+}
+
+.navbar > .title {
+  font-weight: 800;
+  text-transform: uppercase;
+}
