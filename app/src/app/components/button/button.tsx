@@ -1,16 +1,26 @@
 import React from 'react';
-import styles from "./button.module.css";
+import styles from './button.module.css';
 
 interface ButtonProps {
-  title: string;
+  title?: string;
+  primary?: boolean;
+  children?: React.ReactNode;
   type?: 'submit' | 'reset' | 'button';
   ref: React.Ref<HTMLButtonElement>;
 }
 
-export function Button({ title, type = "button", ref }: ButtonProps) {
+export function Button({ children, title, type, primary, ref }: ButtonProps) {
+  const buttonType = type ? type : 'button';
+  const value = children ? (title ? title : '') : title ? title : buttonType;
+
   return (
-    <button className={styles.primary} type={type} ref={ref}>
-      {title}
+    <button
+      className={primary ? styles.btnPrimary : styles.btn}
+      type={buttonType}
+      ref={ref}
+    >
+      {children}
+      {value}
     </button>
   );
 }

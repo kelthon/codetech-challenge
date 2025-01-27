@@ -1,0 +1,22 @@
+.table {
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
+}
+.table > div {
+  padding: 1rem 5.5rem;
+  text-align: center;
+  
+}
+
+.table > div:is(:nth-child(1), :nth-child(4)) {
+  border-radius: 0.5rem;
+}
+
+.table > div:nth-child(4n + 1) {
+  text-align: left;
+}
+
+.table > .thead {
+  background-color: var(--theme-background-muted);
+}
