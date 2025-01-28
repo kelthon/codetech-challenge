@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { validate } from 'class-validator';
 import { SignIn } from '../../use_cases/signin.case';
 import { SignInDto } from '../../infrastructure/dtos/signin.dto';
-import { BadRequestException } from '../../infrastructure/http/bad-request.exception';
+import { StatusCode } from '../../infrastructure/http/status-code';
 
 export class AuthController {
   constructor(private readonly signIn: SignIn) {}
@@ -15,7 +15,7 @@ export class AuthController {
     });
 
     if (errors.length > 0) {
-      return res.status(400).json(errors);
+      return res.status(StatusCode.BadRequest).json(errors);
     }
 
     this.signIn
