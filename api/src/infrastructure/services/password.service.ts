@@ -1,5 +1,5 @@
-import { PasswordService } from '../../domain/interface/password.service';
 import bcrypt from 'bcrypt';
+import { PasswordService } from '../../domain/interface/password.service';
 
 export class BCryptPasswordService implements PasswordService {
   constructor(private saltRounds: number = 10) {}

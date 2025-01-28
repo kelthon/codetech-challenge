@@ -16,7 +16,12 @@ export class SignIn {
       throw new BadRequestException('User was not found');
     }
 
-    if (!this.passwordService.comparePasswords(password, user.hashedPassword)) {
+    const samePassword = await this.passwordService.comparePasswords(
+      password,
+      user.hashedPassword,
+    );
+
+    if (!samePassword) {
       throw new BadRequestException('User password was incorrect');
     }
 
