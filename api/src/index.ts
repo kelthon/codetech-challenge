@@ -1,4 +1,5 @@
 import express from 'express';
+import { config } from './infrastructure/config/config';
 import { dataSource } from './infrastructure/database/typeorm.config';
 import { logger } from './infrastructure/logger';
 import { exceptionHandler } from './interface/middlewares/exception-handler';
@@ -9,7 +10,7 @@ import { studentRoutes } from './interface/routes/student.route';
 
 /* Config */
 const app = express();
-const port = process.env.PORT || 5000;
+const port = config.port;
 
 /* Database */
 dataSource.initialize();
