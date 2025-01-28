@@ -1,38 +1,36 @@
-function RegisterPage() {
-  return (
-    <div className={styles.container}>
-      <AsideMenu />
-      <section className={styles.content}>
-        <h2 className={styles.title}>
-          <span>Alunos</span>
-          <button type="button">Voltar</button>
-        </h2>
+import AsideMenu from '../components/aside';
+import SectionHeader from '../components/section-header';
+import FormInput from '../components/form';
+import { useNavigate } from 'react-router';
+import Container, { VContainer, Wrapper } from '../components/container';
+import { FakeNavBar } from '../components/navbar';
 
-        <form action="post">
-          <div>
-            <p className={styles.inputGroup}>
-              <label className={styles.inputText}>
-                nome completo
-                <input type="text" />
-              </label>
-              <label className={styles.inputText}>
-                turma
-                <input type="text" />
-              </label>
-            </p>
-            <p className={styles.inputGroup}>
-              <label className={styles.inputNumber}>
-                idade
-                <input type="text" />
-              </label>
-            </p>
-          </div>
-          <p className={styles.inputGroup}>
-            <button type="submit">Salvar</button>
-          </p>
-        </form>
-      </section>
-    </div>
+function RegisterPage() {
+  const navigate = useNavigate();
+
+  const handleClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    event.preventDefault();
+
+    navigate('/');
+  };
+
+  return (
+    <Container>
+      <AsideMenu />
+      <VContainer>
+        <FakeNavBar />
+        <Wrapper>
+          <SectionHeader
+            sectionTitle="Alunos"
+            buttonTitle="Voltar"
+            onClickButton={handleClick}
+          />
+          <FormInput />
+        </Wrapper>
+      </VContainer>
+    </Container>
   );
 }
 
