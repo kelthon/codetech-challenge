@@ -31,8 +31,9 @@ export class TypeOrmUserRepository implements UserRepository {
     return this.toUser(entity);
   }
 
-  create(user: UserEntity): Promise<User> {
-    return this.userDataSource.save(user);
+  async create(user: UserEntity): Promise<User> {
+    const entity = await this.userDataSource.save(user);
+    return this.toUser(entity);
   }
 
   async delete(userId: number): Promise<void> {
