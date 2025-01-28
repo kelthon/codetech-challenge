@@ -1,6 +1,4 @@
-import styles from './page.module.css';
-
-export default function SignIn() {
+function AuthenticationPage() {
   return (
     <div className={styles.container}>
       <div className={styles.col}></div>
@@ -29,3 +27,5 @@ export default function SignIn() {
     </div>
   );
 }
+
+export default AuthenticationPage;

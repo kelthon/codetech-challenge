@@ -1,7 +1,4 @@
-import { AsideMenu } from './components/menu';
-import styles from './page.module.css';
-
-export default function Register() {
+function RegisterPage() {
   return (
     <div className={styles.container}>
       <AsideMenu />
@@ -38,3 +35,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default RegisterPage;
