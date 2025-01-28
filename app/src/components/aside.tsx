@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Footer from './footer';
 
 const Aside = styled.aside`
   display: flex;
@@ -34,11 +35,6 @@ const AsideNavItem = styled.li`
   padding: 0.90625rem 3.5rem;
   background-color: var(--theme-background-highlight);
 `;
-const AsideFooter = styled.footer`
-  font-size: 14px;
-  text-align: center;
-  padding-block: 2.5rem;
-`;
 
 function AsideMenu() {
   return (
@@ -54,9 +50,7 @@ function AsideMenu() {
           </AsideNav>
         </nav>
       </AsideSection>
-      <AsideFooter>
-        desenvolvido por <strong>Kelthon</strong>, Codetech
-      </AsideFooter>
+      <Footer />
     </Aside>
   );
 }

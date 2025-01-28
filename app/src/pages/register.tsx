@@ -1,6 +1,6 @@
 import AsideMenu from '../components/aside';
 import SectionHeader from '../components/section-header';
-import FormInput from '../components/form';
+import RegisterForm from '../components/forms/create-student-form';
 import { useNavigate } from 'react-router';
 import Container, { VContainer, Wrapper } from '../components/container';
 import { FakeNavBar } from '../components/navbar';
@@ -27,7 +27,7 @@ function RegisterPage() {
             buttonTitle="Voltar"
             onClickButton={handleClick}
           />
-          <FormInput />
+          <RegisterForm />
         </Wrapper>
       </VContainer>
     </Container>

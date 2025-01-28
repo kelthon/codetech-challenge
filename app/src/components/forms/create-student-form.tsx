@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { Button } from './button';
+import { Button } from '../button';
+
+export interface FormProps {
+  onSubmitForm?: React.FormEventHandler<HTMLFormElement>;
+}
 
 export const Input = styled.input`
   border: none;
@@ -29,43 +33,43 @@ export const InputGroup = styled.div`
   min-height: 3.125rem;
 `;
 
-export const Form = styled.form`
+export const RegisterFormComponent = styled.form`
   flex: 1;
   gap: 2rem;
   display: flex;
-  margin-block-end: 5rem;
   padding: 3rem 2.5rem;
+  margin-block-end: 5rem;
   flex-direction: column;
-  border-radius: 0%.5rem;
+  border-radius: 0.5rem;
   border: 1px solid var(--theme-background-muted);
 `;
 
-function FormInput() {
+function RegisterForm({ onSubmitForm }: FormProps) {
   return (
     <>
-      <Form action="post">
+      <RegisterFormComponent method="post" onSubmit={onSubmitForm}>
         <InputGroup>
           <InputLabel>
             nome completo
-            <Input />
+            <Input type="text" minLength={3} maxLength={75} required />
           </InputLabel>
           <InputLabel>
             idade
-            <Input type="number" min={5} max={105} />
+            <Input type="number" min={5} max={105} required />
           </InputLabel>
         </InputGroup>
         <InputGroup>
           <InputLabel>
             turma
-            <Input />
+            <Input type="text" minLength={2} maxLength={30} required />
           </InputLabel>
         </InputGroup>
         <InputGroup>
           <Button type="submit">Salvar</Button>
         </InputGroup>
-      </Form>
+      </RegisterFormComponent>
     </>
   );
 }
 
-export default FormInput;
+export default RegisterForm;
