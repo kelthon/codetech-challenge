@@ -26,8 +26,14 @@ export class TypeOrmStudentRepository implements StudentRepository {
     return this.toStudent(entity);
   }
 
-  async delete(studentId: number): Promise<void> {
-    await this.studentDataSource.delete(studentId);
+  async delete(studentId: number): Promise<boolean> {
+    const result = await this.studentDataSource.delete(studentId);
+
+    if (result.affected && result.affected > 0) {
+      return true;
+    }
+
+    return false;
   }
 
   toStudent(entity: StudentEntity) {

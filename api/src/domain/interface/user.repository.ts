@@ -5,5 +5,5 @@ export interface UserRepository {
   findOne(userId: number): Promise<User | null>;
   findByEmail(email: string): Promise<User | null>;
   create(user: User): Promise<User>;
-  delete(userId: number): Promise<void>;
+  delete(userId: number): Promise<boolean>;
 }

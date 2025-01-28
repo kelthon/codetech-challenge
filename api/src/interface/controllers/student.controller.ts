@@ -6,6 +6,7 @@ import { StatusCode } from '../../infrastructure/http/status-code';
 import { CreateStudent } from '../../use_cases/create-student.case';
 import { DeleteStudent } from '../../use_cases/delete-student.case';
 import { FindStudent } from '../../use_cases/find-student.case';
+import { BadRequestException } from '../../infrastructure/http/bad-request.exception';
 
 export class StudentController {
   constructor(
@@ -49,7 +50,9 @@ export class StudentController {
 
     this.deleteStudent
       .execute(dto)
-      .then(() => res.status(StatusCode.NoContent))
+      .then((result) =>
+        res.status(StatusCode.OK).json({ message: 'Deleted with successfully' }),
+      )
       .catch((err) => next(err));
   }
 }

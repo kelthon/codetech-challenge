@@ -36,8 +36,14 @@ export class TypeOrmUserRepository implements UserRepository {
     return this.toUser(entity);
   }
 
-  async delete(userId: number): Promise<void> {
-    await this.userDataSource.delete(userId);
+  async delete(userId: number): Promise<boolean> {
+    const result = await this.userDataSource.delete(userId);
+
+    if (result.affected && result.affected > 0) {
+      return true;
+    }
+
+    return false;
   }
 
   toUser(entity: UserEntity) {
