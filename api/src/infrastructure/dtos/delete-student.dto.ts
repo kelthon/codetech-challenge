@@ -1,8 +1,7 @@
-import { IsAlpha, IsDefined, IsNumber, IsString, Length, Min } from 'class-validator';
+import { IsDefined, IsNumberString } from 'class-validator';
 
 export class DeleteStudentDTO {
+  @IsNumberString()
   @IsDefined()
-  @IsNumber()
-  @Min(1)
   studentId: number;
 }
