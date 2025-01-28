@@ -20,10 +20,12 @@ content-type: application/json
 
 ### List all students
 GET {{base_url}}/api/students
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb290QGV4YW1wbGUuY29tIiwiaWF0IjoxNzM4MDQyMTUyLCJleHAiOjE3MzgwNDU3NTJ9.-Y8LjU2PDk-jZlaBNHzXrbCRDL21okUhK7zAso8jY3g
 
 ### Creates a new student 
 POST {{base_url}}/api/students
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb290QGV4YW1wbGUuY29tIiwiaWF0IjoxNzM4MDQyMTUyLCJleHAiOjE3MzgwNDU3NTJ9.-Y8LjU2PDk-jZlaBNHzXrbCRDL21okUhK7zAso8jY3g
 
 {
   "name": "Jonh Doe",
@@ -32,4 +34,6 @@ content-type: application/json
 }
 
 ### Updated student data
-DELETE {{base_url}}/api/students/1
+DELETE {{base_url}}/api/students/8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb290QGV4YW1wbGUuY29tIiwiaWF0IjoxNzM4MDQyMTUyLCJleHAiOjE3MzgwNDU3NTJ9.-Y8LjU2PDk-jZlaBNHzXrbCRDL21okUhK7zAso8jY3g
+
