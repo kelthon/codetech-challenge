@@ -5,6 +5,5 @@ export class SignInDto {
   email: string;
 
   @IsString()
-  @IsStrongPassword()
   password: string;
 }
