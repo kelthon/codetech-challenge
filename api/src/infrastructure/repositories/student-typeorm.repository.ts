@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
+import { Student } from '../../domain/entities/student.entity';
 import { StudentRepository } from '../../domain/interface/student.repository';
 import { StudentEntity } from '../entities/student.entity';
-import { Student } from '../../domain/entities/student.entity';
 
 export class TypeOrmStudentRepository implements StudentRepository {
   constructor(private readonly studentDataSource: Repository<StudentEntity>) {}
