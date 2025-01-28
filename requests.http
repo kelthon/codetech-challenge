@@ -20,12 +20,6 @@ content-type: application/json
 
 ### List all students
 GET {{base_url}}/api/students
-content-type: application/json
-
-{
-  "email": "{{email}}",
-  "password": "{{password}}"
-}
 
 ### Creates a new student 
 POST {{base_url}}/api/students
