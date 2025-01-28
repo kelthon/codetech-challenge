@@ -3,6 +3,8 @@ import { validate } from 'class-validator';
 import { SignIn } from '../../use_cases/signin.case';
 import { SignInDto } from '../../infrastructure/dtos/signin.dto';
 import { StatusCode } from '../../infrastructure/http/status-code';
+import jwt from 'jsonwebtoken';
+import { config } from '../../infrastructure/config/config';
 
 export class AuthController {
   constructor(private readonly signIn: SignIn) {}
@@ -20,7 +22,15 @@ export class AuthController {
 
     this.signIn
       .execute(dto)
-      .then(({ userId, email }) => res.json({ userId, email }))
+      .then(({ userId, email }) => {
+        res.status(StatusCode.OK).json({
+          user: { userId, email },
+          token: jwt.sign({ id: userId, email: email }, config.jwt.secret, {
+            expiresIn: config.jwt.expiresIn,
+          }),
+          expiresIn: config.jwt.expiresIn,
+        });
+      })
       .catch((err) => next(err));
 
     return res;

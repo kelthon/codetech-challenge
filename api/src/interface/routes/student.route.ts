@@ -6,6 +6,7 @@ import { CreateStudent } from '../../use_cases/create-student.case';
 import { DeleteStudent } from '../../use_cases/delete-student.case';
 import { FindStudent } from '../../use_cases/find-student.case';
 import { StudentController } from '../controllers/student.controller';
+import { autheticationHandler } from '../middlewares/authetication-handler';
 
 const route = Router();
 const studentRepository = new TypeOrmStudentRepository(
@@ -21,7 +22,7 @@ const studentController = new StudentController(
   deleteStudentUseCase,
 );
 
-route.post('/students', (req, res, next) => {
+route.post('/students', autheticationHandler, (req, res, next) => {
   try {
     studentController.create(req, res, next);
   } catch (err) {
@@ -29,7 +30,7 @@ route.post('/students', (req, res, next) => {
   }
 });
 
-route.get('/students', (req, res, next) => {
+route.get('/students', autheticationHandler, (req, res, next) => {
   try {
     studentController.findAll(req, res, next);
   } catch (err) {
@@ -37,7 +38,7 @@ route.get('/students', (req, res, next) => {
   }
 });
 
-route.delete('/students/:studentId', (req, res, next) => {
+route.delete('/students/:studentId', autheticationHandler, (req, res, next) => {
   try {
     studentController.delete(req, res, next);
   } catch (err) {
