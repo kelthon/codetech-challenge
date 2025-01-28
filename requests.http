@@ -8,8 +8,6 @@
 
 @email = root@example.com
 @password = root
-@user_id = 1
-@student_id = 1
 
 ### Returns a security web token
 POST {{base_url}}/api/auth
@@ -29,26 +27,15 @@ content-type: application/json
   "password": "{{password}}"
 }
 
-### Returns a student given a id
-GET {{base_url}}/api/students/{{student_id}}
-
 ### Creates a new student 
 POST {{base_url}}/api/students
 content-type: application/json
 
 {
   "name": "Jonh Doe",
-  "age": "{{$randomInt 12 18}}",
-  "grade": "1A",
+  "age": 18,
+  "grade": "1A"
 }
 
 ### Updated student data
-PATCH {{base_url}}/api/students/{{student_id}}
-content-type: application/json
-
-{
-  "name": "John Doe"
-}
-
-### Updated student data
-DELETE {{base_url}}/api/students/{{student_id}}
+DELETE {{base_url}}/api/students/1
